@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
+import java.util.List;
 
 
 @FeignClient("ingressify-court")
@@ -18,15 +19,15 @@ public interface CourtController {
     
     @GetMapping("/court/")
     //list?
-    ResponseEntity<GetOut> get();
+    ResponseEntity<List<CourtOut>> getAllCourts();
 
     @GetMapping("/court/{id}")
-    ResponseEntity<GetOut> get(
+    ResponseEntity<CourtOut> get(
         @PathVariable(required = true) String id
     );
         
     @PutMapping("/court/{id}")
-    ResponseEntity<SolveOut> update (
+    ResponseEntity<CourtOut> update (
         @PathVariable(required = true) String id,
         @RequestBody(required = true) UpdateIn in
     );
