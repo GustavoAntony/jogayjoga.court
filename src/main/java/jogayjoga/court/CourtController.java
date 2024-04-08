@@ -26,7 +26,7 @@ public interface CourtController {
         @PathVariable(required = true) String id
     );
 
-    @GetMapping("/court/{id}/all")
+    @GetMapping("/court/{id}/sportname")
     ResponseEntity<CourtSportOut> getFullInfo(
         @PathVariable(required = true) String id
     );
