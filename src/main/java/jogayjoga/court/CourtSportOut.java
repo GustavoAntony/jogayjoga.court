@@ -6,7 +6,7 @@ public record CourtSportOut(
     String id,
     String name,
     String address,
-    String sportId
+    String sportName
 )
 {
     

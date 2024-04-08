@@ -9,6 +9,6 @@ public record CourtIn(
     String name,
     String address,
     Integer capacity,
-    Integer sportId
+    String sportId
 ) {
 }
