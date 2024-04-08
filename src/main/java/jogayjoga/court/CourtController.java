@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "jogayjoga-court")
 public interface CourtController {
     
-    @PostMapping("/court/")
+    @PostMapping("/court")
     ResponseEntity<?> create(
             @RequestBody(required = true) CourtIn in);
     
