@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 // import java.util.List;
 
 
-@FeignClient("jogayjoga-court")
+@FeignClient(name = "jogayjoga-court")
 public interface CourtController {
     
     @PostMapping("/court/")
