@@ -1,5 +1,7 @@
 package jogayjoga.court;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,9 @@ public interface CourtController {
     @PostMapping("/court")
     ResponseEntity<?> create(
             @RequestBody(required = true) CourtIn in);
+    
+    @GetMapping("/court")
+    public ResponseEntity<List<CourtOut>> readall();
     
     // @GetMapping("/court/")
     // //list?
