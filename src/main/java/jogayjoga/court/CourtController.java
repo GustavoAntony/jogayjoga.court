@@ -36,4 +36,8 @@ public interface CourtController {
     //     @PathVariable(required = true) String id,
     //     @RequestBody(required = true) UpdateIn in
     // );
+    @PostMapping("/court/{id}/reservation")
+    ResponseEntity<?> reserveCourt(
+        @PathVariable(required = true) String id
+    );
 }
