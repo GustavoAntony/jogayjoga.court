@@ -6,9 +6,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 // import java.util.List;
 
 
@@ -21,10 +22,6 @@ public interface CourtController {
     
     @GetMapping("/court")
     public ResponseEntity<List<CourtOut>> readall();
-    
-    // @GetMapping("/court/")
-    // //list?
-    // ResponseEntity<List<CourtOut>> getAllCourts();
 
     @GetMapping("/court/{id}")
     ResponseEntity<CourtOut> get(
@@ -36,13 +33,19 @@ public interface CourtController {
         @PathVariable(required = true) String id
     );
         
-    // @PutMapping("/court/{id}")
-    // ResponseEntity<CourtOut> update (
-    //     @PathVariable(required = true) String id,
-    //     @RequestBody(required = true) UpdateIn in
-    // );
+    @PutMapping("/court/{id}")
+    ResponseEntity<CourtOut> update (
+        @PathVariable(required = true) String id,
+        @RequestBody(required = true) CourtIn in
+    );
+
     @PostMapping("/court/{id}/reservation")
     ResponseEntity<?> reserveCourt(
+        @PathVariable(required = true) String id
+    );
+
+    @DeleteMapping("/court/{id}")
+    ResponseEntity<?> delete(
         @PathVariable(required = true) String id
     );
 }
